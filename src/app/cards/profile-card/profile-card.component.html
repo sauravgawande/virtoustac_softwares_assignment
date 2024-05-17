@@ -15,6 +15,9 @@
    
     <div class="grid-container">
       <div class="example-card" *ngFor="let item of personLists | filter: searchText" >
+        <div style="display: flex;justify-content:flex-end;width: 100%;position: relative;top: 20px;z-index: 1;">
+        <div class="deledt-cross" (click)="deleteProfile(item.id)"> X </div>
+      </div>
         <mat-card class="example-card" (click)="editProfile(item)">
           <mat-card-header>
             <div mat-card-avatar style="background-image: url({{item.avatar}});background-size: cover;"></div>

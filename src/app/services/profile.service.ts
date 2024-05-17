@@ -70,5 +70,13 @@ export class ProfileService {
     }
     return  of(profile);
   }
+  deleteProfile(id: string):Observable <any>{
+    const index = this.profiles.findIndex(p =>p.id === id);
+    if (index !== -1) {
+      this.profiles.splice(index, 1); 
+      return of(true);
+    }
+    return of(false); 
+  }
 }
 

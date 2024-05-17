@@ -37,4 +37,10 @@ export class ProfileCardComponent {
   addProfile(){
     this.router.navigate(['/create']);
   }
+  deleteProfile(id:any){
+    this.profileService.deleteProfile(id).subscribe(res=>{
+      console.log(res);
+      
+    })
+  }
 }

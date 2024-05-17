@@ -32,3 +32,18 @@
      padding: 20px;
      column-gap: 10px;
  }
+ .deledt-cross{
+  background-color: red;
+  color: white;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  height: 20px;
+  border-radius: 0.1rem;
+}
+.deledt-cross :hover{
+  cursor: pointer;
+  opacity: 0.5rem;
+}
