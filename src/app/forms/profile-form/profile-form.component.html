@@ -1,0 +1,55 @@
+<div class="container">
+  
+  <div class="row justify-content-center">
+  
+    <div class="col-md-6">
+      <div class="text-center header"> 
+        <h4> {{title}}</h4>
+      </div>
+      <form class="form-c1" (ngSubmit)="onSubmit()">
+     
+        <div class="row gx-5">
+          <div class="col-sm-6">
+            <mat-form-field class="form-fields" style="width: 100%;">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Enter Name" [(ngModel)]="item.name" name="name">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field class="form-fields" style="width: 100%;">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Enter Email" [(ngModel)]="item.email" name="email">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row gx-5">
+          <div class="col-sm-6">
+            <mat-form-field class="form-fields" style="width: 100%;">
+              <mat-label>Date Of Birth</mat-label>
+              <input matInput [matDatepicker]="picker" placeholder="Enter Date Of Birth" max="{{ today }}" [(ngModel)]="item.dob" name="dob" (blur)="formatDate($event)">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          
+          <div class="col-sm-6">
+            <mat-form-field class="form-fields" style="width: 100%;">
+              <mat-label>Country</mat-label>
+              <mat-select placeholder="Select Country" [(ngModel)]="item.country" name="country">
+                <mat-option *ngFor="let country of countriesList" [value]="country.name">{{ country.name }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+              <mat-label>Upload Avatar</mat-label>
+              <input  type="file" (change)="onFileSelected($event)">    
+          </div>
+          
+        </div>
+      </form>
+      <div class="text-center"> 
+        <button mat-flat-button color="primary" (click)="onSubmit()">{{buttonName}}</button>
+      </div>
+    </div>
+  </div>
+</div>
